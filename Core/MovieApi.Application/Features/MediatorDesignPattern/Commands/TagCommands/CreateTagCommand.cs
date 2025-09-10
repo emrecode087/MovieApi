@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieApi.Application.Features.MediatorDesignPattern.Results.TagResults
+namespace MovieApi.Application.Features.MediatorDesignPattern.Commands.TagCommands
 {
-    public class GetTagQueryResult 
+    public class CreateTagCommand : IRequest
     {
         public int TagId { get; set; }
         public required string Title { get; set; }
