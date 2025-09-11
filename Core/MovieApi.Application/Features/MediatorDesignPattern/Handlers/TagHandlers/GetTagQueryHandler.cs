@@ -26,6 +26,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.TagHandle
                 .AsNoTracking()
                 .Select(x => new GetTagQueryResult
                 {
+                    TagId = x.TagId,
                     Title = x.Title
                 }).ToListAsync(cancellationToken);
 
