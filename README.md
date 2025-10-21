@@ -1,184 +1,202 @@
 # MovieApi Project
 
-Bu proje, film verilerini yönetmek için geliştirilmiş bir ASP.NET Core Web API ve Razor Pages uygulamasıdır. Clean Architecture prensiplerine uygun olarak CQRS ve Mediator Design Pattern'lerini kullanarak geliştirilmiştir.
+Bu proje, film verilerini yÃ¶netmek iÃ§in geliÅŸtirilmiÅŸ bir **ASP.NET Core Web API** ve **Razor Pages** uygulamasÄ±dÄ±r. Clean Architecture prensiplerine uygun olarak **CQRS** ve **Mediator Design Pattern** kullanÄ±larak geliÅŸtirilmiÅŸtir.
 
-## ?? Proje Özellikleri
+## ğŸš€ Proje Ã–zellikleri
 
-- **Clean Architecture** yapısı ile geliştirilmiş
-- **CQRS (Command Query Responsibility Segregation)** pattern implementasyonu
-- **Mediator Design Pattern** kullanımı
-- **Entity Framework Core** ile PostgreSQL veritabanı entegrasyonu
-- **ASP.NET Core Web API** ile RESTful servisler
-- **Razor Pages** ile web arayüzü
-- **Swagger/OpenAPI** dokümantasyonu
-- **.NET 9** framework desteği
+* **Clean Architecture** yapÄ±sÄ± ile geliÅŸtirilmiÅŸ
+* **CQRS (Command Query Responsibility Segregation)** pattern implementasyonu
+* **Mediator Design Pattern** kullanÄ±mÄ±
+* **Entity Framework Core** ile PostgreSQL veritabanÄ± entegrasyonu
+* **ASP.NET Core Web API** ile RESTful servisler
+* **Razor Pages** ile web arayÃ¼zÃ¼
+* **Swagger/OpenAPI** dokÃ¼mantasyonu
+* **.NET 9** framework desteÄŸi
 
-## ??? Proje Mimarisi
+## ğŸ›ï¸ Proje Mimarisi
 
-Proje Clean Architecture prensiplerine uygun olarak aşağıdaki katmanlarda organize edilmiştir:
+Proje, Clean Architecture prensiplerine uygun olarak aÅŸaÄŸÄ±daki katmanlarda organize edilmiÅŸtir:
 
 ```
 MovieApi/
-??? Core/
-?   ??? MovieApi.Domain/          # Domain entities ve business rules
-?   ??? MovieApi.Application/     # Application services, CQRS handlers, ve business logic
-??? Infrastructure/
-?   ??? MovieApi.Persistence/     # Data access layer ve Entity Framework implementasyonları
-??? Presentation/
-?   ??? MovieApi.WebApi/         # Web API controllers ve endpoints
-??? Frontends/
-    ??? MovieApi.WebUI/          # Razor Pages web arayüzü
+â”œâ”€â”€ Core/
+â”‚   â”œâ”€â”€ MovieApi.Domain/        # Domain entities ve business rules
+â”‚   â””â”€â”€ MovieApi.Application/   # Application services, CQRS handlers ve business logic
+â”œâ”€â”€ Infrastructure/
+â”‚   â””â”€â”€ MovieApi.Persistence/   # Data access layer ve EF Core implementasyonlarÄ±
+â”œâ”€â”€ Presentation/
+â”‚   â””â”€â”€ MovieApi.WebApi/        # Web API controllers ve endpoints
+â””â”€â”€ Frontends/
+    â””â”€â”€ MovieApi.WebUI/         # Razor Pages web arayÃ¼zÃ¼
 ```
 
 ### Domain Entities
 
-- **Movie**: Film bilgilerini tutar (başlık, açıklama, rating, süre, çıkış tarihi)
-- **Category**: Film kategorilerini yönetir
-- **Cast**: Oyuncu/aktör bilgilerini saklar
-- **Tag**: Film etiketlerini tutar
-- **Review**: Kullanıcı yorumlarını ve değerlendirmelerini saklar
+* **Movie**: Film bilgilerini tutar (baÅŸlÄ±k, aÃ§Ä±klama, rating, sÃ¼re, Ã§Ä±kÄ±ÅŸ tarihi)
+* **Category**: Film kategorilerini yÃ¶netir
+* **Cast**: Oyuncu/aktÃ¶r bilgilerini saklar
+* **Tag**: Film etiketlerini tutar
+* **Review**: KullanÄ±cÄ± yorumlarÄ±nÄ± ve deÄŸerlendirmelerini saklar
 
-## ??? Teknolojiler
+## ğŸ› ï¸ KullanÄ±lan Teknolojiler
 
-- **.NET 9**
-- **ASP.NET Core Web API**
-- **ASP.NET Core Razor Pages**
-- **Entity Framework Core**
-- **PostgreSQL**
-- **MediatR** (Mediator pattern için)
-- **Swagger/OpenAPI**
+* **.NET 9**
+* **ASP.NET Core Web API**
+* **ASP.NET Core Razor Pages**
+* **Entity Framework Core**
+* **PostgreSQL**
+* **MediatR** (Mediator pattern iÃ§in)
+* **Swagger/OpenAPI**
 
-## ?? Gereksinimler
+## ğŸ“¦ Gereksinimler
 
-- .NET 9 SDK
-- PostgreSQL veritabanı
-- Visual Studio 2022 veya Visual Studio Code
+* .NET 9 SDK
+* PostgreSQL veritabanÄ±
+* Visual Studio 2022 veya Visual Studio Code
 
-## ?? Kurulum
+## âš™ï¸ Kurulum
 
-1. **Repository'yi klonlayın:**
+1. **Repository'yi klonlayÄ±n:**
+
 ```bash
 git clone <repository-url>
 cd MovieApi
 ```
 
-2. **PostgreSQL veritabanını ayarlayın:**
-   - PostgreSQL'in yüklü olduğundan emin olun
-   - `MovieDb` adında bir veritabanı oluşturun
-   - Connection string'i `Infrastructure/MovieApi.Persistence/Context/MovieContext.cs` dosyasında güncelleyin
+2. **PostgreSQL veritabanÄ±nÄ± ayarlayÄ±n:**
 
-3. **NuGet paketlerini yükleyin:**
+   * PostgreSQL'in yÃ¼klÃ¼ olduÄŸundan emin olun
+   * `MovieDb` adÄ±nda bir veritabanÄ± oluÅŸturun
+   * Connection string'i `Infrastructure/MovieApi.Persistence/Context/MovieContext.cs` dosyasÄ±nda gÃ¼ncelleyin
+
+3. **NuGet paketlerini yÃ¼kleyin:**
+
 ```bash
 dotnet restore
 ```
 
-4. **Veritabanı migration'larını uygulayın:**
+4. **VeritabanÄ± migration'larÄ±nÄ± uygulayÄ±n:**
+
 ```bash
 dotnet ef database update --project Infrastructure/MovieApi.Persistence --startup-project Presentation/MovieApi.WebApi
 ```
 
-5. **Web API'yi çalıştırın:**
+5. **Web API'yi Ã§alÄ±ÅŸtÄ±rÄ±n:**
+
 ```bash
 cd Presentation/MovieApi.WebApi
 dotnet run
 ```
 
-6. **Web UI'yi çalıştırın (ayrı bir terminal'de):**
+6. **Web UI'yi Ã§alÄ±ÅŸtÄ±rÄ±n (ayrÄ± bir terminal'de):**
+
 ```bash
 cd Frontends/MovieApi.WebUI
 dotnet run
 ```
 
-## ?? API Endpoints
+## ğŸ”— API Endpoints
 
 ### Movies
-- `GET /api/movies` - Tüm filmleri getir
-- `GET /api/movies/GetMovie?id={id}` - ID'ye göre film getir
-- `POST /api/movies` - Yeni film oluştur
-- `PUT /api/movies` - Film güncelle
-- `DELETE /api/movies/{id}` - Film sil
+
+* `GET /api/movies` â†’ TÃ¼m filmleri getir
+* `GET /api/movies/GetMovie?id={id}` â†’ ID'ye gÃ¶re film getir
+* `POST /api/movies` â†’ Yeni film oluÅŸtur
+* `PUT /api/movies` â†’ Film gÃ¼ncelle
+* `DELETE /api/movies/{id}` â†’ Film sil
 
 ### Categories
-- `GET /api/categories` - Tüm kategorileri getir
-- `GET /api/categories/GetCategory?id={id}` - ID'ye göre kategori getir
-- `POST /api/categories` - Yeni kategori oluştur
-- `PUT /api/categories` - Kategori güncelle
-- `DELETE /api/categories/{id}` - Kategori sil
+
+* `GET /api/categories` â†’ TÃ¼m kategorileri getir
+* `GET /api/categories/GetCategory?id={id}` â†’ ID'ye gÃ¶re kategori getir
+* `POST /api/categories` â†’ Yeni kategori oluÅŸtur
+* `PUT /api/categories` â†’ Kategori gÃ¼ncelle
+* `DELETE /api/categories/{id}` â†’ Kategori sil
 
 ### Tags
-- `GET /api/tags` - Tüm etiketleri getir
-- `GET /api/tags/GetTagById?id={id}` - ID'ye göre etiket getir
-- `POST /api/tags` - Yeni etiket oluştur
-- `PUT /api/tags` - Etiket güncelle
-- `DELETE /api/tags?id={id}` - Etiket sil
+
+* `GET /api/tags` â†’ TÃ¼m etiketleri getir
+* `GET /api/tags/GetTagById?id={id}` â†’ ID'ye gÃ¶re etiket getir
+* `POST /api/tags` â†’ Yeni etiket oluÅŸtur
+* `PUT /api/tags` â†’ Etiket gÃ¼ncelle
+* `DELETE /api/tags?id={id}` â†’ Etiket sil
 
 ### Casts
-- `GET /api/casts` - Tüm oyuncuları getir
-- `GET /api/casts/GetCastById?id={id}` - ID'ye göre oyuncu getir
-- `POST /api/casts` - Yeni oyuncu oluştur
-- `PUT /api/casts` - Oyuncu güncelle
-- `DELETE /api/casts?id={id}` - Oyuncu sil
 
-## ?? API Dokümantasyonu
+* `GET /api/casts` â†’ TÃ¼m oyuncularÄ± getir
+* `GET /api/casts/GetCastById?id={id}` â†’ ID'ye gÃ¶re oyuncu getir
+* `POST /api/casts` â†’ Yeni oyuncu oluÅŸtur
+* `PUT /api/casts` â†’ Oyuncu gÃ¼ncelle
+* `DELETE /api/casts?id={id}` â†’ Oyuncu sil
 
-Proje çalıştırıldıktan sonra Swagger UI'ye şu adresten erişebilirsiniz:
+## ğŸ“– API DokÃ¼mantasyonu
+
+Proje Ã§alÄ±ÅŸtÄ±rÄ±ldÄ±ktan sonra Swagger UI'ye ÅŸu adresten eriÅŸebilirsiniz:
+
 ```
 https://localhost:{port}/swagger
 ```
 
-## ??? Design Patterns
+## ğŸ§© Design Patterns
 
 ### CQRS (Command Query Responsibility Segregation)
-- **Commands**: Veri değiştirme işlemleri (Create, Update, Delete)
-- **Queries**: Veri okuma işlemleri (Get, List)
+
+* **Commands** â†’ Veri deÄŸiÅŸtirme iÅŸlemleri (Create, Update, Delete)
+* **Queries** â†’ Veri okuma iÅŸlemleri (Get, List)
 
 ### Mediator Pattern
-- Tag ve Cast operasyonları için MediatR kullanılmıştır
-- Movie ve Category operasyonları için manuel handler implementasyonu
 
-## ??? Proje Yapısı
+* **Tag** ve **Cast** operasyonlarÄ± iÃ§in **MediatR** kullanÄ±lmÄ±ÅŸtÄ±r
+* **Movie** ve **Category** operasyonlarÄ± iÃ§in manuel handler implementasyonu yapÄ±lmÄ±ÅŸtÄ±r
+
+## ğŸ“‚ Proje YapÄ±sÄ±
 
 ### Core Layer
-- **Domain**: Entity'ler ve domain logic
-- **Application**: Use case'ler, CQRS handlers, ve application services
+
+* **Domain**: Entity'ler ve domain logic
+* **Application**: Use case'ler, CQRS handlers ve application services
 
 ### Infrastructure Layer
-- **Persistence**: Entity Framework context ve veritabanı konfigürasyonları
+
+* **Persistence**: EF Core context ve veritabanÄ± konfigÃ¼rasyonlarÄ±
 
 ### Presentation Layer
-- **WebApi**: REST API endpoints
-- **WebUI**: Razor Pages kullanıcı arayüzü
 
-## ?? Geliştirme
+* **WebApi**: REST API endpoints
+* **WebUI**: Razor Pages kullanÄ±cÄ± arayÃ¼zÃ¼
+
+## ğŸ‘¨â€ğŸ’» GeliÅŸtirme
 
 ### Yeni Entity Ekleme
-1. `Core/MovieApi.Domain/Entities/` klasöründe yeni entity oluşturun
-2. `MovieContext.cs` dosyasına DbSet ekleyin
-3. Migration oluşturup uygulayın
-4. CQRS handlers ve commands/queries oluşturun
+
+1. `Core/MovieApi.Domain/Entities/` klasÃ¶rÃ¼nde yeni entity oluÅŸturun
+2. `MovieContext.cs` dosyasÄ±na DbSet ekleyin
+3. Migration oluÅŸturup uygulayÄ±n
+4. CQRS handlers ve commands/queries ekleyin
 5. Controller ekleyin
 
-### Migration Oluşturma
+### Migration OluÅŸturma
+
 ```bash
 dotnet ef migrations add MigrationName --project Infrastructure/MovieApi.Persistence --startup-project Presentation/MovieApi.WebApi
 ```
 
-## ?? Katkıda Bulunma
+## ğŸ¤ KatkÄ±da Bulunma
 
 1. Fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+2. Feature branch oluÅŸturun (`git checkout -b feature/amazing-feature`)
+3. DeÄŸiÅŸikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
 4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+5. Pull Request oluÅŸturun
 
-## ?? Lisans
+## ğŸ“œ Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+Bu proje **MIT LisansÄ±** altÄ±nda lisanslanmÄ±ÅŸtÄ±r.
 
-## ?? İletişim
+## ğŸ“¬ Ä°letiÅŸim
 
-Proje hakkında sorularınız için issue oluşturabilirsiniz.
+Proje hakkÄ±nda sorularÄ±nÄ±z iÃ§in issue oluÅŸturabilirsiniz.
 
 ---
 
-**Not:** Veritabanı connection string'ini production ortamında environment variable'lar veya configuration dosyaları üzerinden yönetmeyi unutmayın.
+**Not:** Production ortamÄ±nda connection string'i environment variable veya configuration dosyalarÄ± Ã¼zerinden yÃ¶netmeyi unutmayÄ±n.
