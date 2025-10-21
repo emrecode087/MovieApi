@@ -22,7 +22,7 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.UserRegisterH
             _userManager = userManager;
 
         }
-
+        //
         public async Task Handle(CreateUserRegisterCommand command)
         {
             var user = new AppUser()

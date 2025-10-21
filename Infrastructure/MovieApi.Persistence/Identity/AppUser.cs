@@ -14,6 +14,9 @@ namespace MovieApi.Persistence.Identity
         public string Surname { get; set; }
 
         public string ImageUrl { get; set; }
-    
+
+        
+        
+
     }
 }
